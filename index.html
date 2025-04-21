@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plantilla Base</title>
+    <link rel="stylesheet" href="css/mobile-menu.css">
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono&display=swap">
+</head>
+<body data-theme="light">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator"></div>
+
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Background Gradient Mesh -->
+    <div class="bg-gradient-mesh"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span class="logo-icon"><i class="fas fa-code"></i></span>
+                <span class="text-gradient">Mi Sitio</span>
+            </a>
+            
+            <nav class="desktop-nav">
+                <a href="#home" class="active">Inicio</a>
+                <a href="#section1">Sección 1</a>
+                <a href="#section2">Sección 2</a>
+                <a href="#section3">Sección 3</a>
+                <a href="#contact">Contacto</a>
+            </nav>
+
+            <!-- Botón de configuración -->
+            <div class="config-button" id="configButton">
+                <i class="fas fa-cog"></i>
+            </div>
+        </div>
+
+        <!-- Menú de configuración desplegable -->
+        <div class="config-menu" id="configMenu">
+            <div class="config-menu-header">
+                <h4>Configuración</h4>
+                <button class="config-close" id="closeConfigMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="config-menu-items">
+                <div class="config-item theme-toggle-wrapper">
+                    <span>Modo oscuro</span>
+                    <label class="theme-switch">
+                        <input type="checkbox" id="themeToggleCheckbox">
+                        <span class="theme-slider"></span>
+                    </label>
+                </div>
+                
+                <a href="#" id="downloadPdf" class="config-item">
+                    <i class="fas fa-download"></i>
+                    <span>Descargar PDF</span>
+                </a>
+                
+                
+                <div class="config-item language-selector">
+                    <i class="fas fa-globe"></i>
+                    <span>Idioma</span>
+                    <select id="languageSelect">
+                        <option value="es">Español</option>
+                        <option value="en">English</option>
+                    </select>
+                    
+                </div>
+                
+                <div class="config-divider"></div>
+                
+                <div class="config-social">
+                    <a href="#" class="config-social-icon" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="config-social-icon" title="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="config-social-icon" title="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="config-social-icon" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+  <!-- Menú  móvil -->
+    <nav class="mobile-nav">
+        <a href="#home" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="#section1" class="nav-item">
+            <i class="fas fa-star"></i>
+            <span>Sección 1</span>
+        </a>
+        <a href="#section2" class="nav-item">
+            <i class="fas fa-code"></i>
+            <span>Sección 2</span>
+        </a>
+        <a href="#section3" class="nav-item">
+            <i class="fas fa-briefcase"></i>
+            <span>Sección 3</span>
+        </a>
+        <div class="mobile-menu-button">
+            <i class="fas fa-ellipsis-h"></i>
+            <span>Más</span>
+        </div>
+    </nav>
+    
+    <!-- Menú expandido móvil -->
+    <div class="mobile-expanded-menu">
+        <div class="mobile-menu-header">
+            <h4>Menú</h4>
+        </div>
+        <div class="mobile-menu-items">
+            <a href="#contact" class="mobile-menu-item">
+                <i class="fas fa-envelope"></i>
+                <span>Contacto</span>
+            </a>
+            <!-- Más elementos de menú según necesites -->
+            <a href="#" class="mobile-menu-item">
+                <i class="fas fa-info-circle"></i>
+                <span>Acerca de</span>
+            </a>
+            <a href="#" class="mobile-menu-item">
+                <i class="fas fa-question-circle"></i>
+                <span>FAQs</span>
+            </a>
+            
+            <div class="mobile-menu-divider"></div>
+            
+            <div class="mobile-menu-footer">
+                <div class="mobile-menu-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                
+                <div class="theme-toggle-wrapper">
+                    <label class="theme-switch">
+                        <input type="checkbox" id="mobileThemeToggle">
+                        <span class="theme-slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Overlay para el menú móvil -->
+    <div class="mobile-menu-overlay"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="section">
+            <div class="hero-bg-shape-1"></div>
+            <div class="hero-bg-shape-2"></div>
+            <div class="container">
+                <h1 class="text-center">Sección Principal</h1>
+                <p class="text-center">Contenido de ejemplo para la sección principal.</p>
+            </div>
+        </section>
+
+        <!-- Section 1 -->
+        <section id="section1" class="section">
+            <div class="container">
+                <h2 class="text-center">Sección 1</h2>
+                <p class="text-center">Contenido de ejemplo para la sección 1.</p>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section id="section2" class="section">
+            <div class="container">
+                <h2 class="text-center">Sección 2</h2>
+                <p class="text-center">Contenido de ejemplo para la sección 2.</p>
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="section3" class="section">
+            <div class="container">
+                <h2 class="text-center">Sección 3</h2>
+                <p class="text-center">Contenido de ejemplo para la sección 3.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="text-center">Contacto</h2>
+                <p class="text-center">Contenido de ejemplo para la sección de contacto.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div>
+                <a href="#" class="footer-logo text-gradient">Mi Sitio</a>
+                <p>Descripción breve del sitio web.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h3 class="footer-heading">Enlaces rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                    <li><a href="#section1"><i class="fas fa-chevron-right"></i> Sección 1</a></li>
+                    <li><a href="#section2"><i class="fas fa-chevron-right"></i> Sección 2</a></li>
+                    <li><a href="#section3"><i class="fas fa-chevron-right"></i> Sección 3</a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="footer-heading">Servicios</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Servicio 1</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Servicio 2</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Servicio 3</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Servicio 4</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Servicio 5</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h3 class="footer-heading">Contáctame</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:email@ejemplo.com"><i class="fas fa-envelope"></i> email@ejemplo.com</a></li>
+                    <li><a href="tel:+123456789"><i class="fas fa-phone-alt"></i> +12 345 6789</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Ciudad, País</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 Mi Sitio. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/mobile-menu.js"></script>
+    <script src="js/script.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,306 @@
+/**************************************************************
+ * 🧩 COMPONENTES UI - VIDRIO, NEUMORFISMO, BOTONES, TOOLTIP, LOADER 🧩
+ * Este archivo unifica:
+ * ✅ ui-components.css
+ * ✅ buttons.css
+ * ✅ tooltips.css
+ * ✅ preloader.css
+ **************************************************************/
+
+/* 💎 Glass / Neu / Card Styles
+   📘 Copia aquí el contenido de: ui-components.css
+*/
+/* EFECTOS DE VIDRIO Y NEUMORFISMO MEJORADOS */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .glass {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.neu-shadow {
+    border-radius: var(--radius);
+    background: var(--card);
+    box-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.1),
+        -8px -8px 16px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    will-change: transform, box-shadow;
+}
+
+.neu-shadow:hover {
+    box-shadow: 
+        12px 12px 24px rgba(0, 0, 0, 0.12),
+        -12px -12px 24px rgba(255, 255, 255, 0.08);
+    transform: translateY(-5px);
+}
+
+[data-theme="dark"] .neu-shadow {
+    box-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.35),
+        -8px -8px 16px rgba(255, 255, 255, 0.02);
+}
+
+[data-theme="dark"] .neu-shadow:hover {
+    box-shadow: 
+        12px 12px 24px rgba(0, 0, 0, 0.45),
+        -12px -12px 24px rgba(255, 255, 255, 0.03);
+}
+
+.neu-inset {
+    border-radius: var(--radius);
+    background: var(--card);
+    box-shadow: 
+        inset 4px 4px 8px var(--shadow),
+        inset -4px -4px 8px rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+}
+
+/* Glassmorphism mejorado */
+.glass-ios {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--radius-lg);
+    border: 0.5px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .glass-ios {
+    background: rgba(30, 41, 59, 0.7);
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Efectos de profundidad */
+.depth-effect {
+    box-shadow: 
+        0 2px 5px rgba(0, 0, 0, 0.08),
+        0 5px 15px rgba(0, 0, 0, 0.05),
+        0 15px 35px rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.depth-effect:hover {
+    transform: translateY(-5px);
+    box-shadow: 
+        0 5px 10px rgba(0, 0, 0, 0.1),
+        0 10px 25px rgba(0, 0, 0, 0.07),
+        0 20px 45px rgba(0, 0, 0, 0.05);
+}
+
+/* Bordes finos */
+.thin-border {
+    border-width: 0.5px !important;
+}
+
+/* 🔘 Header & Botones Navegación
+   📘 Copia aquí el contenido de: buttons.css
+*/
+
+/* HEADER Y NAVEGACIÓN MEJORADAS */
+header {
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: var(--z-fixed);
+    backdrop-filter: blur(15px); /* Mejorado */
+    -webkit-backdrop-filter: blur(15px);
+    background-color: rgba(var(--bg-light-rgb, 248, 249, 252), 0.85);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Más suave */
+    border-bottom: 1px solid var(--border);
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    will-change: transform, height; /* Mejor rendimiento */
+}
+
+[data-theme="dark"] header {
+    background-color: rgba(var(--bg-dark-rgb, 15, 23, 42), 0.9);
+}
+
+header.scrolled {
+    height: var(--header-height-scroll);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.desktop-nav {
+    display: none;
+}
+
+.logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: -0.03em;
+    display: flex;
+    align-items: center;
+}
+
+.logo-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    margin-right: 10px;
+    color: white;
+    font-size: 18px;
+    box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.3); /* Más estilo iOS */
+}
+
+@media (min-width: 890px) {
+    .desktop-nav {
+        display: flex;
+        gap: var(--spacing-8);
+        align-items: center;
+    }
+    
+    .desktop-nav a {
+        position: relative;
+        padding: var(--spacing-2) 0;
+        color: var(--text-muted);
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .desktop-nav a::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--primary), var(--secondary));
+        transition: width 0.3s ease;
+        border-radius: var(--radius-full);
+    }
+    
+    .desktop-nav a:hover {
+        color: var(--primary);
+    }
+    
+    .desktop-nav a:hover::after {
+        width: 100%;
+    }
+    
+    .desktop-nav a.active {
+        color: var(--primary);
+    }
+    
+    .desktop-nav a.active::after {
+        width: 100%;
+    }
+}
+
+
+/* 💬 Tooltip Estilo iOS
+   📘 Copia aquí el contenido de: tooltips.css
+*/
+
+/* TOOLTIPS MEJORADOS - ESTILO iOS */
+.tooltip {
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px);
+    background: var(--tooltip-bg);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    z-index: var(--z-tooltip);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    font-weight: 500;
+}
+
+.tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: var(--tooltip-bg);
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    z-index: var(--z-tooltip);
+}
+
+.tooltip:hover::after, .tooltip:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* ⏳ Preloader Loader
+   📘 Copia aquí el contenido de: preloader.css
+*/
+
+/* PRELOADER MEJORADO */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    will-change: opacity, visibility;
+}
+
+.preloader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(var(--primary-rgb), 0.15);
+    border-radius: 50%;
+    border-top-color: var(--primary);
+    animation: spin 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    will-change: transform;
+    box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.15);
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,7 @@
+/* ✨ ARCHIVO MAESTRO: Importa los módulos fusionados */
+
+@import 'base.css';
+@import 'components.css';
+@import 'settings.css';
+@import 'sections.css';
+@import 'responsive.css';

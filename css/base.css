@@ -1,0 +1,399 @@
+/**************************************************************
+ * 🔰 BASE - VARIABLES, RESET, TEMA, ANIMACIONES Y UTILIDADES 🔰
+ * Este archivo unifica:
+ * ✅ variables.css
+ * ✅ base.css
+ * ✅ animations.css
+ * ✅ utils.css
+ **************************************************************/
+
+/* 🌈 VARIABLES - LIGHT / DARK MODE
+   📘 Copia aquí el contenido de: variables.css
+*/
+/* VARIABLES Y RESET */
+:root {
+   /* Colores claros */
+   --bg-light: #f8fafc;
+   --text-light: #0f172a;
+   --text-light-muted: #64748b;
+   --primary-light: #3b82f6;
+   --primary-light-hover: #2563eb;
+   --secondary-light: #6d28d9;
+   --secondary-light-hover: #5b21b6;
+   --accent-light: #06b6d4;
+   --accent-light-hover: #0891b2;
+   --surface-light: #ffffff;
+   --card-light: #f1f5f9;
+   --border-light: #e2e8f0;
+   --shadow-light: rgba(148, 163, 184, 0.2);
+   --shadow-light-hover: rgba(148, 163, 184, 0.35);
+   
+   /* Colores oscuros */
+   --bg-dark: #0f172a;
+   --text-dark: #f1f5f9;
+   --text-dark-muted: #94a3b8;
+   --primary-dark: #60a5fa;
+   --primary-dark-hover: #93c5fd;
+   --secondary-dark: #a78bfa;
+   --secondary-dark-hover: #c4b5fd;
+   --accent-dark: #22d3ee;
+   --accent-dark-hover: #67e8f9;
+   --surface-dark: #1e293b;
+   --card-dark: #334155;
+   --border-dark: #475569;
+   --shadow-dark: rgba(0, 0, 0, 0.3);
+   --shadow-dark-hover: rgba(0, 0, 0, 0.5);
+   
+   /* Transiciones */
+   --transition-speed: 300ms;
+   --transition-func: cubic-bezier(0.4, 0, 0.2, 1);
+   --radius-sm: 0.5rem;
+   --radius: 1rem;
+   --radius-lg: 1.5rem;
+   --radius-xl: 2rem;
+   --radius-full: 9999px;
+   
+   /* Fuentes */
+   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   --font-mono: 'JetBrains Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+   --font-display: 'Outfit', var(--font-sans);
+   
+   /* Espaciado */
+   --spacing-1: 0.25rem;
+   --spacing-2: 0.5rem; 
+   --spacing-3: 0.75rem;
+   --spacing-4: 1rem;
+   --spacing-5: 1.25rem;
+   --spacing-6: 1.5rem;
+   --spacing-8: 2rem;
+   --spacing-10: 2.5rem;
+   --spacing-12: 3rem;
+   --spacing-16: 4rem;
+   --spacing-20: 5rem;
+   --spacing-24: 6rem;
+   --spacing-32: 8rem;
+   
+   /* z-index */
+   --z-dropdown: 1000;
+   --z-sticky: 1020;
+   --z-fixed: 1030;
+   --z-modal-backdrop: 1040;
+   --z-modal: 1050;
+   --z-popover: 1060;
+   --z-tooltip: 1070;
+   
+   /* Otras */
+   --header-height: 70px;
+   --header-height-scroll: 60px;
+   --mobile-nav-height: 64px;
+   
+   /* Variables de control RGB para efectos */
+   --primary-rgb: 59, 130, 246;
+   --secondary-rgb: 109, 40, 217;
+   --accent-rgb: 6, 182, 212;
+   --bg-light-rgb: 248, 250, 252;
+   --bg-dark-rgb: 15, 23, 42;
+}
+
+[data-theme="dark"] {
+   --bg: var(--bg-dark);
+   --text: var(--text-dark);
+   --text-muted: var(--text-dark-muted);
+   --primary: var(--primary-dark);
+   --primary-hover: var(--primary-dark-hover);
+   --secondary: var(--secondary-dark);
+   --secondary-hover: var(--secondary-dark-hover);
+   --accent: var(--accent-dark);
+   --accent-hover: var(--accent-dark-hover);
+   --surface: var(--surface-dark);
+   --card: var(--card-dark);
+   --border: var(--border-dark);
+   --shadow: var(--shadow-dark);
+   --shadow-hover: var(--shadow-dark-hover);
+   
+   /* Specific dark mode overrides */
+   --input-bg: var(--surface-dark);
+   --tooltip-bg: var(--card-dark);
+   color-scheme: dark;
+}
+
+[data-theme="light"] {
+   --bg: var(--bg-light);
+   --text: var(--text-light);
+   --text-muted: var(--text-light-muted);
+   --primary: var(--primary-light);
+   --primary-hover: var(--primary-light-hover);
+   --secondary: var(--secondary-light);
+   --secondary-hover: var(--secondary-light-hover);
+   --accent: var(--accent-light);
+   --accent-hover: var(--accent-light-hover);
+   --surface: var(--surface-light);
+   --card: var(--card-light);
+   --border: var(--border-light);
+   --shadow: var(--shadow-light);
+   --shadow-hover: var(--shadow-light-hover);
+   
+   /* Specific light mode overrides */
+   --input-bg: var(--surface-light);
+   --tooltip-bg: var(--text-light);
+   color-scheme: light;
+}
+/* ♻️ RESET & TIPOGRAFÍA GLOBAL
+   📘 Copia aquí el contenido de: base.css
+*/
+
+/* Optimizar rendimiento para animaciones y transiciones */
+*, *::before, *::after {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   transition: background-color var(--transition-speed) var(--transition-func), 
+               color var(--transition-speed) var(--transition-func),
+               border-color var(--transition-speed) var(--transition-func),
+               box-shadow var(--transition-speed) var(--transition-func);
+   will-change: auto;
+}
+
+/* Mejorar rendimiento de scrolling */
+html {
+   scroll-behavior: smooth;
+   scroll-padding-top: calc(var(--header-height) + var(--spacing-4));
+   font-size: 16px; /* Base font size */
+   height: 100%;
+   -webkit-overflow-scrolling: touch; /* Para mejor rendimiento en iOS */
+}
+
+body {
+   font-family: var(--font-sans);
+   background-color: var(--bg);
+   color: var(--text);
+   line-height: 1.7;
+   overflow-x: hidden;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+   position: relative;
+   min-height: 100%;
+}
+
+/* TIPOGRAFÍA MEJORADA */
+h1, h2, h3, h4, h5, h6 {
+   font-family: var(--font-display);
+   font-weight: 700;
+   line-height: 1.2;
+   margin-bottom: var(--spacing-6);
+   color: var(--text);
+   letter-spacing: -0.02em; /* Mejora legibilidad en títulos */
+}
+
+h1 {
+   font-size: clamp(2.5rem, 5vw, 4.5rem);
+   letter-spacing: -0.03em;
+   font-weight: 800;
+}
+
+h2 {
+   font-size: clamp(2rem, 4vw, 3rem);
+   letter-spacing: -0.02em;
+   position: relative;
+   display: inline-block;
+   margin-bottom: var(--spacing-10);
+}
+
+h2::after {
+   content: '';
+   position: absolute;
+   bottom: -0.5rem;
+   left: 0;
+   height: 5px;
+   width: 60px;
+   background: linear-gradient(90deg, var(--primary), var(--secondary));
+   border-radius: var(--radius-full);
+   transition: width 0.3s ease;
+}
+
+.text-center h2::after {
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+h3 {
+   font-size: clamp(1.5rem, 3vw, 2rem);
+   letter-spacing: -0.015em;
+}
+
+h4 {
+   font-size: clamp(1.25rem, 2vw, 1.5rem);
+   letter-spacing: -0.01em;
+}
+
+p, li {
+   margin-bottom: var(--spacing-4);
+   color: var(--text-muted);
+   font-size: 1.05rem;
+}
+
+.text-gradient {
+   background: linear-gradient(135deg, var(--primary), var(--secondary));
+   -webkit-background-clip: text;
+   background-clip: text;
+   color: transparent;
+}
+
+.text-accent {
+   color: var(--accent);
+}
+
+a {
+   color: var(--primary);
+   text-decoration: none;
+   transition: all 0.3s ease;
+   position: relative;
+}
+
+a:hover {
+   color: var(--primary-hover);
+}
+
+/* LAYOUT Y CONTENEDORES */
+.container {
+   width: 90%;
+   max-width: 1400px;
+   margin: 0 auto;
+   padding: 0 var(--spacing-4);
+}
+
+.section {
+   padding: var(--spacing-20) 0;
+   position: relative;
+   overflow: hidden;
+}
+
+.section:nth-of-type(even) {
+   background-color: var(--card);
+}
+
+.text-center {
+   text-align: center;
+}
+
+.text-right {
+   text-align: right;
+}
+
+.text-left {
+   text-align: left;
+}
+
+/* ESPACIADO ÚTIL */
+.mb-1 { margin-bottom: var(--spacing-1); }
+.mb-2 { margin-bottom: var(--spacing-2); }
+.mb-4 { margin-bottom: var(--spacing-4); }
+.mb-6 { margin-bottom: var(--spacing-6); }
+.mb-8 { margin-bottom: var(--spacing-8); }
+.mb-10 { margin-bottom: var(--spacing-10); }
+.mb-12 { margin-bottom: var(--spacing-12); }
+.mb-16 { margin-bottom: var(--spacing-16); }
+
+.mt-1 { margin-top: var(--spacing-1); }
+.mt-2 { margin-top: var(--spacing-2); }
+.mt-4 { margin-top: var(--spacing-4); }
+.mt-6 { margin-top: var(--spacing-6); }
+.mt-8 { margin-top: var(--spacing-8); }
+.mt-10 { margin-top: var(--spacing-10); }
+.mt-12 { margin-top: var(--spacing-12); }
+.mt-16 { margin-top: var(--spacing-16); }
+
+/* 🎞️ ANIMACIONES (Fade In / Left / Right)
+   📘 Copia aquí el contenido de: animations.css
+*/
+/* ANIMACIONES OPTIMIZADAS */
+.fade-in {
+   opacity: 0;
+   transform: translateY(20px); /* Reducido para animación más sutil */
+   transition: opacity 0.6s ease, transform 0.6s ease;
+   will-change: opacity, transform;
+}
+
+.fade-in.active {
+   opacity: 1;
+   transform: translateY(0);
+}
+
+.fade-right {
+   opacity: 0;
+   transform: translateX(-20px); /* Reducido para animación más sutil */
+   transition: opacity 0.6s ease, transform 0.6s ease;
+   will-change: opacity, transform;
+}
+
+.fade-right.active {
+   opacity: 1;
+   transform: translateX(0);
+}
+
+.fade-left {
+   opacity: 0;
+   transform: translateX(20px); /* Reducido para animación más sutil */
+   transition: opacity 0.6s ease, transform 0.6s ease;
+   will-change: opacity, transform;
+}
+
+.fade-left.active {
+   opacity: 1;
+   transform: translateX(0);
+}
+/* 🧰 UTILIDADES: ScrollTop, ScrollBar, Helpers
+   📘 Copia aquí el contenido de: utils.css
+*/
+/* Scroll Indicator Mejorado */
+.scroll-indicator {
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 3px;
+   background: linear-gradient(90deg, var(--primary), var(--secondary));
+   z-index: calc(var(--z-fixed) + 1);
+   width: 0%;
+   transition: width 0.1s ease;
+   will-change: width;
+}
+
+/* Scroll to Top Mejorado */
+.scroll-top {
+   position: fixed;
+   bottom: calc(var(--mobile-nav-height) + 60px);
+   right: 20px;
+   width: 45px;
+   height: 45px;
+   background: var(--primary);
+   color: white;
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   opacity: 0;
+   visibility: hidden;
+   transform: translateY(20px);
+   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+   z-index: var(--z-fixed);
+   box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
+}
+
+.scroll-top.visible {
+   opacity: 1;
+   visibility: visible;
+   transform: translateY(0);
+}
+
+.scroll-top:hover {
+   background: var(--secondary);
+   transform: translateY(-5px) scale(1.1);
+   box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.4);
+}
+
+@media (min-width: 890px) {
+   .scroll-top {
+       bottom: 20px;
+   }
+}
