@@ -361,7 +361,7 @@ a:hover {
 /* Scroll to Top Mejorado */
 .scroll-top {
    position: fixed;
-   bottom: calc(var(--mobile-nav-height) + 60px);
+   bottom: calc(var(--mobile-nav-height) + 70px);
    right: 20px;
    width: 45px;
    height: 45px;

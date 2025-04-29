@@ -511,3 +511,42 @@ document.getElementById('languageSelect').addEventListener('change', e => {
     showNotification('success', 'Idioma cambiado', `Has cambiado el idioma a ${lang === 'es' ? 'Español' : 'Inglés'}.`);
 });
 
+// Funcionalidad mejorada para íconos sociales
+document.addEventListener('DOMContentLoaded', function() {
+    // Encontrar todos los íconos sociales que usan imágenes 3D
+    const socialIcons = document.querySelectorAll('.social-icon img, .config-social-icon img');
+    
+    if (socialIcons.length > 0) {
+        socialIcons.forEach(icon => {
+            // Añadir clase para aplicar estilos
+            icon.classList.add('social-3d-icon');
+            
+            // Eventos para animación al pasar el cursor
+            icon.parentElement.addEventListener('mouseenter', () => {
+                icon.style.transform = 'scale(1.15)';
+            });
+            
+            icon.parentElement.addEventListener('mouseleave', () => {
+                icon.style.transform = 'scale(1)';
+            });
+        });
+    }
+    
+    // Mejorar navegación en móviles
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Cerrar menú móvil expandido si está abierto
+            const expandedMenu = document.querySelector('.mobile-expanded-menu');
+            const overlay = document.querySelector('.mobile-menu-overlay');
+            const menuButton = document.querySelector('.mobile-menu-button');
+            
+            if (expandedMenu && expandedMenu.classList.contains('open')) {
+                expandedMenu.classList.remove('open');
+                overlay.classList.remove('active');
+                menuButton.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    });
+});

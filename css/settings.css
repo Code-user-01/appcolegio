@@ -309,3 +309,4 @@ input:checked + .theme-slider:before {
    color: white;
    box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.2);
 }
+
